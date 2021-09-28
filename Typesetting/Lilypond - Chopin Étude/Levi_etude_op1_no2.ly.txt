@@ -1,0 +1,94 @@
+\version "2.18.2"
+\header {
+	title = \markup {
+		\center-column {
+			"Étude no 2 en préparation pour"
+			"l'étude Op. 10 no 1 de Chopin"
+		}
+	}
+	composer = "J. Levi, 1/2017"
+}
+upper = \relative c'' {
+	\clef treble
+%	\key c \major
+%	\time 3/4
+	\tempo  "Allegro non troppo"
+
+	{	% m 1
+		\change Staff = "lower"
+		\tweak Y-offset #2
+		r16 
+		-\tweak Y-offset #2
+		\mf	
+		\override Stem.direction = #UP
+		c,, g' c
+		\change Staff = "upper"
+		e c g' c e c g' c |
+	}
+	{	% m 2
+		e c g c, e c g c, e c
+		\change Staff = "lower"
+		g c, |
+	}
+	{	% m 3
+		\tweak Y-offset #2
+		r c a' c
+		\change Staff = "upper"
+		f c a' c f c a' c |
+	}
+	{	% m 4
+		e c a c, e c a c,
+		\override Stem.direction = #UP
+		d c 
+		\change Staff = "lower"
+		a c, |
+	}
+	{	% m 5
+		\tweak Y-offset #2
+		r b g' b
+		\change Staff = "upper"
+		d b g' b d b g' b |
+	}
+	{	% m 6
+		d a fis c d a fis c
+		\override Stem.direction = #UP
+		d a
+		\change Staff = "lower"
+		fis c |
+	{	% m 7
+		\revert Stem.direction
+		\change Staff = "upper"
+		\once \hide r2_"[etc.]" \hide r4  |
+%		\once \hide { Rest r2_"[etc.]" r4 } |
+	}
+	}
+}
+
+lower = \relative c {
+	\clef bass
+	<<	% mm 1-2
+		\new Voice = "first"
+			{c2.~ | c }
+		\new Voice = "second"
+			\relative c, {c~\sustainOn | c }
+	>>
+	% mm 3-4
+	< f, f,>\sustainOff\sustainOn |
+	< fis fis,>\sustainOff\sustainOn |
+	% mm 5-7
+	<< g4 g,\sustainOff\sustainOn  >> < fis' fis, > < e e, > |
+	<< d2. d,\sustainOff\sustainOn >> |
+	< g' g, >\sustainOff\sustainOn |
+}
+
+\score {
+	\new PianoStaff <<
+		\set PianoStaff.instrumentName = #"Piano  "
+		\time 3/4
+		\new Staff = "upper" \upper
+		\new Staff = "lower" \lower
+	>>
+}
+
+\layout {
+}

@@ -12,3 +12,6 @@ curApp.includeStandardAdditions = true;
 // Following line causes script to exit _before_ 'echo 1; exit 1'.
 curApp.doShellScript('echo 0; exit 0; echo 1; exit 1');
 
+// console.log:
+// 0
+

@@ -2,8 +2,7 @@
 \header {
 	title = \markup {
 		\center-column {
-			"Étude no 1 en préparation pour"
-			"l'étude Op. 10 no 1 de Chopin"
+			"Étude no 1 en préparation pour l'étude Op. 10 no 1 de Chopin"
 		}
 	}
 	composer = "J. Levi, 1/2017"
@@ -67,7 +66,7 @@ lower = \relative c {
 		\new Voice = "second"
 			\relative c, {c~\sustainOn | c }
 	>>
-	< f, f,>\sustainOff\sustainOn |
+	< f, f,>\sustainOff\markup{" "}\sustainOn |
 	< fis fis,>\sustainOff\sustainOn |
 	\override Stem.direction = #DOWN
 	<< g2 g,\sustainOff\sustainOn >>
